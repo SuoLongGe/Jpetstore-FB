@@ -1,0 +1,33 @@
+#file: noinspection SpringBootApplicationYaml
+spring:
+  profiles:
+    active: dev
+  security:
+    oauth2:
+      client:
+        registration:
+          gitee:
+            client-id: 26c76ab8dd757ae7abf4f94405ab8389cf2c0967215de16fd453488052ba39ca
+            client-secret: 5f21f22e73b602d155f323c2dc67ba6da62c748b67108fc6db818dc2b276c936
+            redirect-uri: http://localhost:5173/oauth/callback
+            redirect-uri-bind: http://localhost:5173/c/usersetting/gitee-callback
+            token-uri: https://gitee.com/oauth/token
+            user-info-uri: https://gitee.com/api/v5/user
+            authorize-uri: https://gitee.com/oauth/authorize
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
+jwt:
+  # 签发人
+  issuer: jiejie
+  # 秘钥
+  secret: H19LYLvvC+UyTI3epHLeVOnDzSvRaSgVsVnhyu2Piq3+X2QCEROYE36c+U0/uQLGRGUk4pjXKEJCQ3f8+fRNKQ==
+  # token 过期时间（单位：分钟） 24*60
+  tokenExpireTime: 1440
+  # token 请求头中的 key 值
+  tokenHeaderKey: Authorization
+  # token 请求头中的 value 值前缀
+  tokenPrefix: Bearer
+server:
+  port: 8080
